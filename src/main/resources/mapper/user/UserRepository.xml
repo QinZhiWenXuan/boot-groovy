@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xuan.wen.zhi.qin.domains.repositories.user.UserRepository">
+    <resultMap type="xuan.wen.zhi.qin.domains.models.user.UserModel" id="basiceMap">
+        <result property="id" column="id" javaType="java.lang.Integer"/>
+        <result property="address" column="address" javaType="java.lang.String"/>
+        <result property="email" column="email" javaType="java.lang.String"/>
+        <result property="phone" column="phone" javaType="java.lang.String"/>
+        <result property="userName" column="user_name" javaType="java.lang.String"/>
+    </resultMap>
+
+    <select id="all" statementType="STATEMENT"
+            resultMap="basiceMap" useCache="true">
+        <include refid="querySQL"/>
+    </select>
+
+    <select id="queryById" statementType="PREPARED"
+            resultMap="basiceMap">
+        <include refid="querySQL"/>
+        <where>
+            id=#{id}
+        </where>
+    </select>
+
+    <sql id="querySQL">
+        <![CDATA[
+
+         SELECT id ,address ,email ,phone ,user_name FROM t_user
+
+        ]]>
+    </sql>
+
+    <insert id="save" parameterType="xuan.wen.zhi.qin.domains.models.user.UserModel"
+            statementType="PREPARED" useGeneratedKeys="true"
+            keyProperty="id" keyColumn="id">
+        <![CDATA[
+			INSERT INTO t_user(version, address, email, password, phone, user_name)
+            VALUES (#{version}, #{address}, #{email}, #{password}, #{phone}, #{userName})
+        ]]>
+    </insert>
+
+    <update id="edit" parameterType="xuan.wen.zhi.qin.domains.models.user.UserModel"
+            statementType="PREPARED">
+        UPDATE t_user
+        <set>
+            <trim suffix=",">
+                <if test="address != null">
+                    address=#{address}
+                </if>
+                <if test="phone != null">
+                    phone=#{phone}
+                </if>
+                <if test="userName != null">
+                    user_name=#{userName}
+                </if>
+            </trim>
+            version=version+1
+        </set>
+        <where>
+            id = #{id}
+        </where>
+    </update>
+
+    <delete id="deleteById" statementType="PREPARED">
+        DELETE FROM t_user
+        <where>
+            id = #{id}
+        </where>
+    </delete>
+</mapper>
