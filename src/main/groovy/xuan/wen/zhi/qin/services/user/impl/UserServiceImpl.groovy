@@ -35,4 +35,9 @@ class UserServiceImpl extends AbstractService<UserModel> implements UserService<
         model.password = PasswordCodec.encode(model.password);
         return super.save(model)
     }
+
+    @Override
+    UserModel queryByEmail(String email) {
+        return this.userRepository.queryByEmail(email);
+    }
 }

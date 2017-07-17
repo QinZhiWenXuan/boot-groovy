@@ -24,6 +24,14 @@
         </where>
     </select>
 
+    <select id="queryByEmail"  statementType="PREPARED"
+            resultMap="basiceMap" useCache="true">
+        SELECT password ,email FROM t_user
+        <where>
+            email = #{email}
+        </where>
+    </select>
+
     <sql id="querySQL">
         <![CDATA[
 
