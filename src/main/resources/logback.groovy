@@ -22,8 +22,7 @@ appender("dailyRollingFileAppender", RollingFileAppender) {
     }
 }
 
-logger("org.springframework.web", INFO)
-logger("java.sql.Connection", ERROR)
-logger("java.sql", DEBUG)
-logger("xuan.wen.zhi.qin", DEBUG)
-root(ERROR, ["consoleAppender", "dailyRollingFileAppender"])
+def appenderNames = ["consoleAppender", "dailyRollingFileAppender"]
+
+logger("org.springframework", INFO ,appenderNames)
+root(DEBUG, appenderNames)
