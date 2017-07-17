@@ -1,8 +1,8 @@
 package xuan.wen.zhi.qin.domains.repositories
-
 /**
  * Created by qinzhiwenxuan on 2017/7/11.
  */
+
 interface BasicRepository<T> {
 
     /***
