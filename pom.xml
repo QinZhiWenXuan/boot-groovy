@@ -11,6 +11,7 @@
         <java.version>1.8</java.version>
         <servlet.version>3.1.0</servlet.version>
         <groovy.version>2.4.7</groovy.version>
+        <druid.version>1.0.18</druid.version>
         <shiro.version>1.4.0</shiro.version>
         <gmavenplus-plugin.version>1.5</gmavenplus-plugin.version>
         <gmaven-runtime.version>1.5</gmaven-runtime.version>
@@ -54,6 +55,13 @@
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>${druid.version}</version>
+        </dependency>
+
 
         <dependency>
             <groupId>net.sf.ehcache</groupId>

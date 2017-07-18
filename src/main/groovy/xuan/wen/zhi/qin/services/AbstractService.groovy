@@ -1,5 +1,6 @@
 package xuan.wen.zhi.qin.services
 
+import org.springframework.transaction.annotation.Transactional
 import xuan.wen.zhi.qin.domains.repositories.BasicRepository
 
 import javax.annotation.PostConstruct
@@ -7,6 +8,7 @@ import javax.annotation.PostConstruct
 /**
  * Created by qinzhiwenxuan on 2017/7/11.
  */
+@Transactional
 abstract class AbstractService<T> implements BasicService<T> {
     protected BasicRepository<T> basicRepository
 

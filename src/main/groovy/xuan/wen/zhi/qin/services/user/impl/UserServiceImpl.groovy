@@ -2,6 +2,7 @@ package xuan.wen.zhi.qin.services.user.impl
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 import xuan.wen.zhi.qin.domains.models.user.UserModel
 import xuan.wen.zhi.qin.domains.repositories.user.UserRepository
 import xuan.wen.zhi.qin.services.AbstractService
@@ -12,6 +13,7 @@ import xuan.wen.zhi.qin.utils.PasswordCodec
  * Created by qinzhiwenxuan on 2017/7/11.
  */
 @Service("userService")
+@Transactional
 class UserServiceImpl extends AbstractService<UserModel> implements UserService<UserModel> {
 
     @Autowired

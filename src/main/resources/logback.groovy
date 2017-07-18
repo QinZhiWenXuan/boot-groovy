@@ -5,7 +5,7 @@ import static ch.qos.logback.classic.Level.*
 
 appender("consoleAppender", ConsoleAppender) {
     encoder(PatternLayoutEncoder) {
-        pattern = ".%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg %n"
+        pattern = ".%d{HH:mm:ss.SSS} [%thread] %-5level %class - %msg %n"
     }
     filter(ThresholdFilter) {
         level = TRACE
@@ -18,7 +18,7 @@ appender("dailyRollingFileAppender", RollingFileAppender) {
         maxHistory = 30
     }
     encoder(PatternLayoutEncoder) {
-        pattern = "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{35} - %msg %n"
+        pattern = "%d{HH:mm:ss.SSS} [%thread] %-5level %class - %msg %n"
     }
 }
 
