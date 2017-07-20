@@ -40,8 +40,8 @@ class UserController extends AbstractController<UserModel> {
      * @return 对象
      */
     @GetMapping(value = "{id}")
-    def get (@PathVariable(value = "id") Integer id) {
-        return super.getById(id) ;
+    def get(@PathVariable(value = "id") Integer id) {
+        return super.getById(id);
     }
 
     /***
@@ -70,7 +70,7 @@ class UserController extends AbstractController<UserModel> {
      * @return 结果
      */
     @DeleteMapping(value = "{id}")
-    def remove (@PathVariable(value = "id") Integer id) {
-        return super.deleteById(id) ;
+    def remove(@PathVariable(value = "id") Integer id) {
+        return super.deleteById(id);
     }
 }

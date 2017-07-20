@@ -16,7 +16,7 @@ class FileController {
 
     @PostMapping(value = "upload")
     def upload(@RequestParam(name = "file") MultipartFile file) {
-        file.transferTo(new File('E:\\resources\\image\\min\\' + file.getOriginalFilename())) ;
+        file.transferTo(new File('E:/resources/image/min/' + file.getOriginalFilename())) ;
         ['code': 200]
     }
 }

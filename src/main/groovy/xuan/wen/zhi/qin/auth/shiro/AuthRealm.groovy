@@ -28,7 +28,6 @@ class AuthRealm extends AuthorizingRealm {
         logger.debug('授权认证 。。。。 ');
         String loginName = super.getAvailablePrincipal(principalCollection).toString();
         UserModel model = userService.queryByEmail(loginName);
-        logger.debug('授权认证 : {}', model.toString());
         Optional.of(model).ifPresent({ consumer ->
             Set<String> roles = new HashSet<>();
             roles << 'authc';
@@ -44,7 +43,6 @@ class AuthRealm extends AuthorizingRealm {
         org.apache.shiro.authc.SimpleAuthenticationInfo info = null;
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
         UserModel model = userService.queryByEmail(token.username);
-        logger.debug('登陆认证 : {}', model.toString());
         Optional.of(model).ifPresent({ consumer ->
             info = new org.apache.shiro.authc.SimpleAuthenticationInfo(model.email, model.password, this.getName());
         });

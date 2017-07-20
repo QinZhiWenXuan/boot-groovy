@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping(value = "/", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 class HomeController {
+
     @GetMapping
-    def home () {
+    def home() {
         ['Welcome']
     }
 }
